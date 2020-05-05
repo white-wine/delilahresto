@@ -84,6 +84,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'delilahresto'@'localhost';
 
 
 ## Heroku
+https://www.youtube.com/watch?v=dw1y7qwNb4E
 
 1- Instalar el toolkit heroku
 2- $ heroku login
@@ -94,5 +95,26 @@ GRANT ALL PRIVILEGES ON *.* TO 'delilahresto'@'localhost';
    $ heroku apps:rename --app [nombreviejo] [nombrenuevo] 
 5- git remote -v
    ver si esta el repo de heroku
+
+6- git push heroku master
+7- heroku logs --tail 
+8- abrir otra terminal y ejecutar el addon
+   heroku addons:create cleardb:ignite
    
-     
+   heroku addons:create heroku-postgresql o heroku addons:add heroku-postgresql 
+
+   Si no tengo tarjeta de credito hay que configurarla
+   no se va a cobrar nada
+
+      Creating cleardb:ignite on ⬢ delilahresto... !
+      ▸    Please verify your account to install this add-on plan (please enter a credit card) For more
+      ▸    information, see https://devcenter.heroku.com/categories/billing Verify now at https://heroku.com/verify
+
+9- heroku config | grep CLEARDB_DATABASE_URL  #en mysqk
+9- heroku config | grep DATABASE_URL  #en postgres
+10- configurar la cadena de conexion mysql devuelta
+11- heroku config: set DATABASE_URL='cadena_de_conexion_mysql_devuelta' 
+12- configurar la cadena de conexion en mi aplicacion
+
+13- heroku run bash
+14- heroku open
