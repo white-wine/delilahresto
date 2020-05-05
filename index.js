@@ -4,7 +4,7 @@ const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
-const port = 3000
+const PORT = process.env.PORT || 3050;
 const server = require('http').createServer(app)
 const authRoutes = require('./api/auth/routes')
 const productsRoutes = require('./api/products/routes')
@@ -33,17 +33,17 @@ db.sequelize
   .sync()
   .then((data) => {
     // console.log(data.config);
-    console.log(`MySQL connection has been established successfully: \x1b[32m%s\x1b[0m`, 'online');
+    console.log(`DB connection has been established successfully: \x1b[32m%s\x1b[0m`, 'online');
   })
   .catch((err) => {
-    console.error('Unable to connect to the database MySQL:', err);
+    console.error('Unable to connect to the database DB:', err);
   });
 
 // configuro server
-server.listen(port, (err) => {
+server.listen(PORT, (err) => {
   if (err) {
     console.error(err);
   } else {
-    console.log(`Express server corriendo en el port ${port}: \x1b[32m%s\x1b[0m`, 'online');
+    console.log(`Express server corriendo en el port ${PORT}: \x1b[32m%s\x1b[0m`, 'online');
   }
 })
