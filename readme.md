@@ -100,7 +100,7 @@ https://www.youtube.com/watch?v=dw1y7qwNb4E
 7- heroku logs --tail 
 8- abrir otra terminal y ejecutar el addon
    heroku addons:create cleardb:ignite
-   
+
    heroku addons:create heroku-postgresql o heroku addons:add heroku-postgresql 
 
    Si no tengo tarjeta de credito hay que configurarla
@@ -117,4 +117,5 @@ https://www.youtube.com/watch?v=dw1y7qwNb4E
 12- configurar la cadena de conexion en mi aplicacion
 
 13- heroku run bash
+npx sequelize-cli db:seed:all
 14- heroku open
