@@ -8,7 +8,7 @@ app.get('/', [mdw.verifyToken, mdw.verifyAdmin], UsersController.Fetch)
 
 app.get('/:id', [mdw.verifyToken], UsersController.FetchOne)
 
-app.post('/', [mdw.verifyToken, mdw.verifyAdmin], UsersController.Create);
+app.post('/', UsersController.Create);
 
 app.put('/:id', [mdw.verifyToken, mdw.verifyAdmin], UsersController.Update);
 

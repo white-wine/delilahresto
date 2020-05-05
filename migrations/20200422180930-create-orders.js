@@ -13,7 +13,7 @@ module.exports = {
         allowNull: false,
       },
       order_status: {
-        type: Sequelize.STRING(8),
+        type: Sequelize.STRING(15),
         allowNull: false,
       },
       order_time: {

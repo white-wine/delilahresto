@@ -22,7 +22,7 @@ app.use(morgan('dev'))
 app.get('/', (req, res) => {
   res.send('Welcome to my API!');
 });
-app.use('/auth', authRoutes)
+app.use('/users/login', authRoutes)
 app.use('/products', productsRoutes)
 app.use('/users', usersRoutes)
 app.use('/orders', ordersRoutes)
