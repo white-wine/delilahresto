@@ -112,8 +112,8 @@ https://www.youtube.com/watch?v=dw1y7qwNb4E
 
 9- heroku config | grep CLEARDB_DATABASE_URL  #en mysqk
 9- heroku config | grep DATABASE_URL  #en postgres
-10- configurar la cadena de conexion mysql devuelta
-11- heroku config: set DATABASE_URL='cadena_de_conexion_mysql_devuelta' 
+10- heroku config:set DATABASE_URL='cadena_de_conexion_mysql_devuelta' 
+11- configurar la cadena de conexion mysql devuelta
 12- configurar la cadena de conexion en mi aplicacion
 
 13- heroku run bash
