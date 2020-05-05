@@ -84,7 +84,10 @@ GRANT ALL PRIVILEGES ON *.* TO 'delilahresto'@'localhost';
 
 
 ## Heroku
-https://www.youtube.com/watch?v=dw1y7qwNb4E
+
+Pasos para deployar API rest
+
+VER -> https://www.youtube.com/watch?v=dw1y7qwNb4E
 
 1- Instalar el toolkit heroku
 2- $ heroku login
@@ -113,9 +116,8 @@ https://www.youtube.com/watch?v=dw1y7qwNb4E
 9- heroku config | grep CLEARDB_DATABASE_URL  #en mysqk
 9- heroku config | grep DATABASE_URL  #en postgres
 10- heroku config:set DATABASE_URL='cadena_de_conexion_mysql_devuelta' 
-11- configurar la cadena de conexion mysql devuelta
-12- configurar la cadena de conexion en mi aplicacion
-
-13- heroku run bash
-npx sequelize-cli db:seed:all
+11- configurar la cadena de conexion mysql devuelta en el config de la aplicacion
+12- Si uso postgres, configurar la cadena de conexion postgres devuelta en el config de la aplicacion
+13- heroku run bash sirve para acceder a mi virtual de heroku donde esta alojado mi aplicacion a traves del shell bash y se puede aplicar comandos de linux para ejecutar los seeders
+     npx sequelize-cli db:seed:all
 14- heroku open
