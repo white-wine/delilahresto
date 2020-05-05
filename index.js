@@ -14,11 +14,14 @@ const ordersRoutes = require('./api/orders/routes')
 // middleware: es una funcion intercepta cada request que llega para
 // hacer alguna operacion y luego con next sigo el flujo a la siguiente capa
 
+// add the middleware function
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use(bodyParser.json(), cors())
 app.use(morgan('dev'))
-// add the middleware function
 
+app.get('/', (req, res) => {
+  res.send('Welcome to my API!');
+});
 app.use('/auth', authRoutes)
 app.use('/products', productsRoutes)
 app.use('/users', usersRoutes)
