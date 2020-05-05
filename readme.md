@@ -90,7 +90,9 @@ GRANT ALL PRIVILEGES ON *.* TO 'delilahresto'@'localhost';
 3- Crear una app 
    $ heroku create
 
-   Renombrar
-
+4- Renombrar
    $ heroku apps:rename --app [nombreviejo] [nombrenuevo] 
+5- git remote -v
+   ver si esta el repo de heroku
+   
      
