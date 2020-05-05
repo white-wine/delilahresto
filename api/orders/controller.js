@@ -1,6 +1,6 @@
 const db = require('../../models')
 const RESPONSES = require('../../utils/responses')
-
+const { Op } = db.Sequelize;
 class OrdersController {
   static Fetch(req, res, next) {
     db.Order.findAndCountAll()
@@ -37,17 +37,24 @@ class OrdersController {
       })).catch(err => res.status(400).json({ message: RESPONSES.DB_CONNECTION_ERROR.message }));
   }
   static Create(req, res) {
-    debugger
     const { 
       UserId,
       products, 
       order_status,
       order_description,
-      order_amount,
       payment_method
     } = req.body
     db.sequelize.transaction({ autocommit: false }).then(async(t) => {
-      let orderModel = await db.Order.create({
+      const productModel = await db.Product.findAll({
+        where: { 
+          id: {  
+            [Op.in]: products
+          }
+        }
+      })
+      let order_amount = productModel.reduce((acum, b) => acum + +b.product_price, 0);
+
+      const orderModel = await db.Order.create({
         UserId,
         order_status,
         order_description,

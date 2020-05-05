@@ -90,6 +90,8 @@ Pasos para deployar API rest
 VER -> https://www.youtube.com/watch?v=dw1y7qwNb4E
 
 1- Instalar el toolkit heroku
+   https://devcenter.heroku.com/articles/heroku-cli
+
 2- $ heroku login
 3- Crear una app 
    $ heroku create

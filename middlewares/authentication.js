@@ -56,7 +56,7 @@ exports.verifyAdminOrSelfUser = function(req, res, next) {
   } else {
     return res.status(403).json({
       ok: false,
-      message: 'Token incorrecto - no es admin ni el mismo usuario',
+      message: 'No puede eliminarse asi mismo un usuario',
       errors: { message: 'Forbidden' },
     })
   }
