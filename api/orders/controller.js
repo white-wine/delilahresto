@@ -60,8 +60,12 @@ class OrdersController {
         order_description,
         order_amount,
         payment_method
-      }, { transaction: t });
-      
+      }, { 
+        include: [
+          { model: db.User }
+        ], 
+        transaction: t 
+      });
       const productOrders = products.map(i => {
           return {
             ProductId: i,
@@ -79,7 +83,7 @@ class OrdersController {
     }).then((order) => {
       res.status(201).json({
         ok: true,
-        order: order,
+        order_sent: order,
       })
     })
     .catch(err => {

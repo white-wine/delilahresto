@@ -567,9 +567,9 @@ definitions:
   product_stored:
     type: "object"
     required:
-      - "name"
-      - "photoUrls"
-      - "price"
+      - "product_name"
+      - "product_photo"
+      - "product_price"
     properties:
       product_id:
         type: "integer"

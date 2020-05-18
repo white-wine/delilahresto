@@ -7,7 +7,7 @@ class ProductsController {
       .then((data) => {
         res.status(200).json({
           ok: true,
-          payload: data.rows,
+          product_stored: data.rows,
         })
       })
       .catch(err => {
@@ -38,6 +38,7 @@ class ProductsController {
   }
   static Create(req, res) {
     const { product_name, product_price, product_photo } = req.body
+
     db.Product.create({
         product_name,
         product_price,
@@ -45,7 +46,7 @@ class ProductsController {
       }).then((productSaved) => {
         res.status(201).json({
           ok: true,
-          product: productSaved,
+          product_upload: productSaved,
         })
       })
       .catch(err => {

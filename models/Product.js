@@ -33,18 +33,12 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     }
   }, {
-    // hooks: {
-    //   beforeCreate: function(product, options) {
-    //     const now = new Date()
-    //     product.createdAt = now
-    //     product.updatedAt = now
-    //     product.deletedAt = now
-    //   },
-    //   beforeUpdate: function(product, options, fn) {
-    //     const now = new Date()
-    //     product.updatedAt = now;
-    //   }
-    //}
+    //  hooks: {
+    //    afterCreate: function(product, options) {
+    //     delete product.createdAt;
+    //     delete product.updatedAt;
+    //    }
+    // }
   });
   Product.associate = function(models) {
     // associations can be defined here
@@ -54,5 +48,6 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'ProductId',
     });
   };
+  Product.me
   return Product;
 };

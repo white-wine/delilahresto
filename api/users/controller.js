@@ -49,9 +49,10 @@ class UsersController {
         phone_number,
         is_admin        
       }).then((userSaved) => {
+        userSaved.password = ';P';
         res.status(201).json({
           ok: true,
-          user: userSaved,
+          user_registered: userSaved,
         })
       })
       .catch(err => {
