@@ -8,8 +8,7 @@ module.exports = {
           table: 'Products',
           field: 'id',
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
+
       }
     ),
     queryInterface.addConstraint(
@@ -20,8 +19,7 @@ module.exports = {
           table: 'Orders',
           field: 'id',
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
+     
       }
     );
   },

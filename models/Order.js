@@ -12,7 +12,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     order_status: {
-      type: DataTypes.STRING,
+      type:   DataTypes.ENUM,
+      values: ['new', 'confirmed', 'preparing','delivering','delivered'],
+      defaultValue: 'new',
       allowNull: false,
     },
     order_time: {
