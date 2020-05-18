@@ -1,0 +1,356 @@
+{
+	"info": {
+		"_postman_id": "d062fd47-000b-4492-b2bd-09a1b4706a25",
+		"name": "delilahresto_development",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c7d75cb0-7ef9-4170-a626-d479b88c7c8f",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody)",
+							"postman.setEnvironmentVariable(\"access_token\", jsonData.access_token)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "sescobar",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "sescobar",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/auth",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"auth"
+					]
+				},
+				"description": "realiza autenticación y devuelve token"
+			},
+			"response": []
+		},
+		{
+			"name": "List users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"users"
+					]
+				},
+				"description": "Lista todos los usuarios"
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"ironman\",\n\t\"firstname\": \"Tony\",\n\t\"lastname\": \"Stark\",\n\t\"password\": \"123456\",\n\t\"email\": \"tony@strarkindustries.com\", \n\t\"address\": \"9 de julio 222\",\n\t\"phone_number\": \"333939393\",\n\t\"is_admin\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"users"
+					]
+				},
+				"description": "Condición 1: debe poder registrar un usuario"
+			},
+			"response": []
+		},
+		{
+			"name": "List products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/products",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"products"
+					]
+				},
+				"description": "Condición 2: un usuario lista todos los productos disponibles"
+			},
+			"response": []
+		},
+		{
+			"name": "Create product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"product_name\": \"Hamburguer XL\",\n\t\"product_price\": \"260\",\n\t\"product_photo\": \"https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2006&q=80\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/products",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"products"
+					]
+				},
+				"description": "Condicion 5: Crea un producto. solo un usuario con rol de admin puede crearlos \n"
+			},
+			"response": []
+		},
+		{
+			"name": "Update product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"product_name\": \"Hamburguer Double XL\",\n\t\"product_price\": \"290\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/products/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"products",
+						"1"
+					]
+				},
+				"description": "Condicion 5: Actualizar un producto. solo un usuario con rol de admin puede actualizarlos \n"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/products/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"products",
+						"2"
+					]
+				},
+				"description": "Condicion 5: Borra un producto. solo un usuario con rol de admin puede borrarlo \n"
+			},
+			"response": []
+		},
+		{
+			"name": "List orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/products",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"products"
+					]
+				},
+				"description": "Lista todas las ordenes"
+			},
+			"response": []
+		},
+		{
+			"name": "Create order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"order_status\": \"new\",\n\t\"order_description\": \"1xDoubleBurg 2xFrenchFr\",\n\t\"payment_method\": \"cash\",\n\t\"UserId\": 1,\n\t\"products\":  [\n\t  1,\n\t  2\n\t]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/orders",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"orders"
+					]
+				},
+				"description": "Condición 3: Guarda una orden, Un usuario puede generar un nuevo pedido al restaurante"
+			},
+			"response": []
+		},
+		{
+			"name": "Update order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"order_status\": \"confirmed\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/orders/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"orders",
+						"1"
+					]
+				},
+				"description": "Condición 4: Actualización de pedido y solo un usurio con rol de administrador puede actualizarlo"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
