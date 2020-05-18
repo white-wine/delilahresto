@@ -6,7 +6,7 @@ const app = express()
 
 app.get('/', [mdw.verifyToken, mdw.verifyAdmin], UsersController.Fetch)
 
-app.get('/:id', [mdw.verifyToken], UsersController.FetchOne)
+app.get('/:id', [mdw.verifyToken, mdw.verifyAdmin], UsersController.FetchOne)
 
 app.post('/', UsersController.Create);
 
