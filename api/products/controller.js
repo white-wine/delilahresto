@@ -82,8 +82,8 @@ class ProductsController {
         where: {
           id,
         }
-      }).then((productUpdated) => {
-        if (productUpdated === 0) {
+      }).then((productDeleted) => {
+        if (productDeleted === 0) {
           return res.status(404).json({
             ok: false,
             err: 'Product not found',
@@ -97,7 +97,7 @@ class ProductsController {
       }).catch(db.Sequelize.ValidationError, msg => res.status(422).json({
         message: msg.errors[0].message,
       })).catch(err => {
-        res.status(400).json({ message: RESPONSES.DB_CONNECTION_ERROR.message })
+        res.status(400).json({ message: err.message })
       });
   }
 }

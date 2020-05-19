@@ -45,15 +45,18 @@ class OrdersController {
       payment_method
     } = req.body
     db.sequelize.transaction({ autocommit: false }).then(async(t) => {
+      // obtengo el modelo de todos los productos que mande en mi orden
       const productModel = await db.Product.findAll({
         where: { 
           id: {  
-            [Op.in]: products
+            [Op.in]: products.map(i=>i.id)
           }
         }
-      })
+      }, { transaction: t})
+      // calculo la suma de todos los productos a traves del precio unitario de cada producto
       let order_amount = productModel.reduce((acum, b) => acum + +b.product_price, 0);
 
+      // creo una orden
       const orderModel = await db.Order.create({
         UserId,
         order_status,
@@ -61,18 +64,18 @@ class OrdersController {
         order_amount,
         payment_method
       }, { 
-        include: [
-          { model: db.User }
-        ], 
         transaction: t 
       });
-      const productOrders = products.map(i => {
-          return {
-            ProductId: i,
-            OrderId: orderModel.id
-          }
-      });
 
+      // preparo la tabla asociativa
+      const productOrders = products.map( i => {
+        return {
+          ProductId: i.id,
+          OrderId: orderModel.id,
+          product_quantity: i.product_quantity           
+        }          
+      });
+      // grabo en la tabla asociativa 
       await db.ProductOrder.bulkCreate(productOrders,  {
         transaction: t
       }).catch(err => {

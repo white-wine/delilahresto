@@ -19,7 +19,7 @@ Pasos requeridos:
  npx sequelize-cli db:seed:all
 ```
 
-Adicionalmente se creo la estructura de la base de datos en el archivo db/delilahresto.sql
+Adicionalmente se creo la estructura de la base de datos en el archivo resources/delilahresto.sql
 
 6- La configución de la base de datos se encuentra en el archivo config/config.json y se debe configurar los parametros correspondientes a la base de datos ej:
 
@@ -33,4 +33,6 @@ Adicionalmente se creo la estructura de la base de datos en el archivo db/delila
 ## Documentación de los endpoints:
 
 Publicado en: https://documenter.getpostman.com/view/10614879/SzmfYcfu?version=latest
+
+y se adiciono el archivo resources/delilahresto_development.postman_collection.json para importar en el postman
 

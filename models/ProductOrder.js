@@ -15,6 +15,10 @@ module.exports =  (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
+    product_quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     createdAt: {
       allowNull: false,
       defaultValue: new Date(),
