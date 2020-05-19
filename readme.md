@@ -44,7 +44,7 @@ Adicionalmente se creo la estructura de la base de datos en el archivo resources
 
 ## Documentación de los endpoints:
 
-Publicado en: https://documenter.getpostman.com/view/10614879/SzmfYcfu?version=latest
+Publicado en: https://documenter.getpostman.com/view/10614879/Szt5fqxk
 
 y se adiciono el archivo resources/delilahresto_development.postman_collection.json para importar en el postman
 
