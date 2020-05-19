@@ -59,13 +59,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/v1/auth",
+					"raw": "{{url}}/v1/users/login",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"v1",
-						"auth"
+						"users",
+						"login"
 					]
 				},
 				"description": "realiza autenticación y devuelve token"
@@ -74,6 +75,9 @@
 		},
 		{
 			"name": "List users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -87,6 +91,10 @@
 				},
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "{{url}}/v1/users",
 					"host": [
@@ -251,14 +259,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/v1/products/2",
+					"raw": "{{url}}/v1/products/3",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"v1",
 						"products",
-						"2"
+						"3"
 					]
 				},
 				"description": "Condicion 5: Borra un producto. solo un usuario con rol de admin puede borrarlo \n"
