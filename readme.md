@@ -48,3 +48,6 @@ Publicado en: https://documenter.getpostman.com/view/10614879/Szt5fqxk
 
 y se adiciono el archivo resources/delilahresto_development.postman_collection.json para importar en el postman
 
+
+## La publicación de la aplicación en Heroku se encuentra en:
+https://delilahresto2020.herokuapp.com/
