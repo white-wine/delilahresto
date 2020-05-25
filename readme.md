@@ -47,7 +47,7 @@ npx sequelize-cli db:seed:all
     "database": "delilahresto_development",
     "host": "localhost"
 
-8- El deploy se encuentra deployado en heroku en la siguiente url
+8- El proyecto se encuentra deployado en heroku en la siguiente url
 
 https://delilahresto2020.herokuapp.com/
 
