@@ -53,5 +53,5 @@ https://delilahresto2020.herokuapp.com/
 
 ## Documentación de los endpoints:
 
-Publicado en: https://documenter.getpostman.com/view/10614879/Szt5fqxk?version=latest
+Publicado en: https://documenter.getpostman.com/view/10614879/SztA7Udb?version=latest
 y se adiciono el archivo resources/delilahresto_development.postman_collection.json para importar en el postman

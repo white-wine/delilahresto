@@ -279,13 +279,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/v1/products",
+					"raw": "{{url}}/v1/orders",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"v1",
-						"products"
+						"orders"
 					]
 				},
 				"description": "Lista todas las ordenes"
