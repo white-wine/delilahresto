@@ -11,7 +11,7 @@ class AuthController {
         where: {
           username: body.username
         },
-        attributes: ['username', 'password', 'is_admin']
+        attributes: ['id', 'username', 'password', 'is_admin']
       }).then(user => {
         if (!user) {
           return res.status(400).json({

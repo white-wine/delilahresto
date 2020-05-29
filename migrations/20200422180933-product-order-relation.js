@@ -19,7 +19,8 @@ module.exports = {
           table: 'Orders',
           field: 'id',
         },
-     
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       }
     );
   },
