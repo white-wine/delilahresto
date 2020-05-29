@@ -11,6 +11,16 @@ class OrdersController {
     }
     db.Order.findAll({
       where: where,
+      include: [
+        {
+          model: db.User,
+          attributes: ['id', 'username', 'firstname', 'lastname', 'email', 'address', 'phone_number']
+        }, {
+          model: db.Product,
+          as: 'products',
+          attributes: ['id', 'product_name', 'product_price', 'product_photo']
+        }
+      ]
     })
       .then((data) => {
         res.status(200).json({
@@ -34,6 +44,16 @@ class OrdersController {
     }
     db.Order.findAll({
       where: where,
+      include: [
+        {
+          model: db.User,
+          attributes: ['id', 'username', 'firstname', 'lastname', 'email', 'address', 'phone_number']
+        }, {
+          model: db.Product,
+          as: 'products',
+          attributes: ['id', 'product_name', 'product_price', 'product_photo']
+        }
+      ]
     })
       .then((order) => {
         if (order === 0) {
