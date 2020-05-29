@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d062fd47-000b-4492-b2bd-09a1b4706a25",
+		"_postman_id": "bb94e290-5a51-4b18-9525-177798fcaeaa",
 		"name": "delilahresto_development",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c7d75cb0-7ef9-4170-a626-d479b88c7c8f",
+						"id": "b6e78ffa-f7a0-47b9-8110-1d5b6be3a7cb",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody)",
 							"postman.setEnvironmentVariable(\"access_token\", jsonData.access_token)"
