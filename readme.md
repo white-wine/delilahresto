@@ -5,7 +5,7 @@ Pasos requeridos:
 1- clonar repo:
 
 ```
-git clone https://github.com/hongoatomic/delilahresto
+git clone https://github.com/white-wine/delilahresto
 ```
 
 2- Entrar a la carpeta
